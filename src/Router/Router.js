@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Header from "../Components/Header/Header";
 import HomePage from "../Pages/HomePage";
 import ImageDetailsPage from "../Pages/ImageDetailsPage";
 import ImageSearchPage from "../Pages/ImageSearchPage";
@@ -9,6 +10,7 @@ import UserPage from "../Pages/UserPage";
 export default function Router() {
   return (
     <BrowserRouter>
+      <Header/>
       <Switch>
         <Route exact path="/">
           <HomePage />
