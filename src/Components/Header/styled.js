@@ -7,8 +7,8 @@ export const HeaderContainer = styled.div`
     border-bottom: 1px solid black;
     padding: 0px 30px;
 `
-export const Title = styled.h1`
-     
+export const ButtonTitle = styled.h1`
+     cursor: pointer; 
 `
 export const ButtonsContainer = styled.div `
     display: flex;
