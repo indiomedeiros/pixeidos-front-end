@@ -5,12 +5,13 @@ import ImageDetailsPage from "../Pages/ImageDetailsPage";
 import ImageSearchPage from "../Pages/ImageSearchPage";
 import LoginPage from "../Pages/LoginPage";
 import SignupPage from "../Pages/SignupPage";
+import UploudPage from "../Pages/UploudPage";
 import UserPage from "../Pages/UserPage";
 
 export default function Router() {
   return (
     <BrowserRouter>
-      <Header/>
+      <Header />
       <Switch>
         <Route exact path="/">
           <HomePage />
@@ -29,6 +30,9 @@ export default function Router() {
         </Route>
         <Route exact path="/image/:id">
           <ImageDetailsPage />
+        </Route>
+        <Route exact path="/uploud">
+          <UploudPage />
         </Route>
       </Switch>
     </BrowserRouter>

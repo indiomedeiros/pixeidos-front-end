@@ -3,6 +3,7 @@ import {
   goToHomePage,
   goTologinPage,
   goToSignupPage,
+  goToUploudPage,
 } from "../../Coordination/coordination";
 import {
   HeaderContainer,
@@ -24,7 +25,9 @@ export default function Header(props) {
         <ButtonSignup onClick={() => goToSignupPage(history)}>
           Signup
         </ButtonSignup>
-        <ButtonUploud>Uploud</ButtonUploud>
+        <ButtonUploud onClick={() => goToUploudPage(history)}>
+          Uploud
+        </ButtonUploud>
       </ButtonsContainer>
     </HeaderContainer>
   );

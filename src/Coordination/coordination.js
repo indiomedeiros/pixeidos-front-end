@@ -21,3 +21,7 @@ export const goTologinPage = (history) => {
 export const goToUserPage = (history) => {
   history.push("/user");
 };
+
+export const goToUploudPage = (history) => {
+    history.push("/uploud");
+  };
