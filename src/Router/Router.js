@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "../Components/Header/Header";
-import HomePage from "../Pages/HomePage";
+import HomePage from "../Pages/HomePage/HomePage";
 import ImageDetailsPage from "../Pages/ImageDetailsPage";
 import ImageSearchPage from "../Pages/ImageSearchPage";
 import LoginPage from "../Pages/LoginPage";
