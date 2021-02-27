@@ -19,7 +19,7 @@ export default function Header(props) {
 
   return (
     <HeaderContainer>
-      <ButtonTitle onClick={() => goToHomePage(history)}>PIXEIDOS</ButtonTitle>
+      <ButtonTitle onClick={() => goToHomePage(history)}>PixMoviment</ButtonTitle>
       <ButtonsContainer>
         <ButtonLogin onClick={() => goTologinPage(history)}>login</ButtonLogin>
         <ButtonSignup onClick={() => goToSignupPage(history)}>
