@@ -19,7 +19,7 @@ export default function Router() {
         <Route exact path="/login">
           <LoginPage />
         </Route>
-        <Route exact path="/singup">
+        <Route exact path="/signup">
           <SignupPage />
         </Route>
         <Route exact path="/user">

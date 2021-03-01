@@ -5,3 +5,8 @@ export const HomeImageDiv = styled.div`
   justify-content: center;
   align-items: center;
 `;
+export const HomeCardDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`
