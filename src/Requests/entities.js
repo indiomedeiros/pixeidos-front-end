@@ -1,8 +1,9 @@
 //POST
-export const signupEntitie  = "https://backend-fullstack-labenu.herokuapp.com/user/signup"
-export const loginEntitie = "https://backend-fullstack-labenu.herokuapp.com/user/login"
-export const createImageEntitie = "https://backend-fullstack-labenu.herokuapp.com/image/createImage"
+export const signupEntitie  = "http://localhost:3003/user/signup"
+export const loginEntitie = "http://localhost:3003/user/login"
+export const createImageEntitie = "http://localhost:3003/image/create"
 
 //GET
-export const getAllImagesEntitie = "https://backend-fullstack-labenu.herokuapp.com/image/all"
-export const getAllTags = "https://backend-fullstack-labenu.herokuapp.com/image/tags"
+export const getAllImagesEntitie = "http://localhost:3003/image/all"
+export const searchImageEntitie = "http://localhost:3003/image/search?dataSearch=Crianças"
+export const getImageByIdEntitie = "http://localhost:3003/image/"

@@ -17,7 +17,7 @@ export default function LoginPage() {
     onChange(name, value);
   };
 
-  const signUpUser = (event) => {
+  const loginUser = (event) => {
     event.preventDefault();
     const result = requestPost(loginEntitie, form);
     if (result) history.push("/user");
@@ -25,7 +25,7 @@ export default function LoginPage() {
 
   return (
     <div>
-      <form onSubmit={signUpUser}>
+      <form onSubmit={loginUser}>
         <InputComponent
           label="E-mail"
           type="email"
