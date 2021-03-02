@@ -1,6 +1,8 @@
 import { useHistory } from "react-router-dom";
 import InputComponent from "../Components/Input/Input";
 import { useForm } from "../Hooks/useForm";
+import { loginEntitie } from "../Requests/entities";
+import { requestPost } from "../Requests/requests";
 
 export default function LoginPage() {
   const history = useHistory();
@@ -19,6 +21,8 @@ export default function LoginPage() {
 
   const signUpUser = (event) => {
     event.preventDefault();
+    const result = requestPost(loginEntitie, form);
+    if (result) history.push("/user");
   };
 
   return (

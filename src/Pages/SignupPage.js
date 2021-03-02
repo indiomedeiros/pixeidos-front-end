@@ -1,7 +1,8 @@
 import { useHistory } from "react-router-dom";
 import InputComponent from "../Components/Input/Input";
 import { useForm } from "../Hooks/useForm";
-import {requestSignup} from "../Requests/requests"
+import {requestPost} from "../Requests/requests"
+import {signupEntitie} from "../Requests/entities"
 
 export default function SignupPage() {
   const history = useHistory();
@@ -21,8 +22,9 @@ export default function SignupPage() {
   const signUpUser = (event) => {
     event.preventDefault();
 
-    const token = requestSignup(form)
-    console.log()
+    const result= requestPost(signupEntitie, form)
+    if(result) history.push("/user")
+    
   };
 
   return (
