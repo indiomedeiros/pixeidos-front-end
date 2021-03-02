@@ -7,8 +7,6 @@ import { requestPost } from "../Requests/requests";
 export default function LoginPage() {
   const history = useHistory();
   const initForm = {
-    name: "",
-    nickname: "",
     email: "",
     password: "",
   };
