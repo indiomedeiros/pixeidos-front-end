@@ -5,5 +5,5 @@ export const createImageEntitie = "http://localhost:3003/image/create"
 
 //GET
 export const getAllImagesEntitie = "http://localhost:3003/image/all"
-export const searchImageEntitie = "http://localhost:3003/image/search?dataSearch=Crianças"
+export const searchImageEntitie = "http://localhost:3003/image/search?dataSearch="
 export const getImageByIdEntitie = "http://localhost:3003/image/"

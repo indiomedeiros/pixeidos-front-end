@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import HomePage from "../Pages/HomePage/HomePage";
 import ImageDetailsPage from "../Pages/ImageDetailsPage";
-import ImageSearchPage from "../Pages/ImageSearchPage";
 import LoginPage from "../Pages/LoginPage";
 import SignupPage from "../Pages/SignupPage";
 import UploudPage from "../Pages/UploudPage";
@@ -25,9 +24,7 @@ export default function Router() {
         <Route exact path="/user">
           <UserPage />
         </Route>
-        <Route exact path="/image/search">
-          <ImageSearchPage />
-        </Route>
+
         <Route exact path="/image/:id">
           <ImageDetailsPage />
         </Route>

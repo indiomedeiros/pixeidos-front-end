@@ -1,8 +1,8 @@
 import { useHistory } from "react-router-dom";
 import InputComponent from "../Components/Input/Input";
 import { useForm } from "../Hooks/useForm";
-import { requestPost } from "../Requests/requests";
 import { signupEntitie } from "../Requests/entities";
+import { useRequestPost } from "../Hooks/useRequestPost";
 
 export default function SignupPage() {
   const history = useHistory();
@@ -13,6 +13,7 @@ export default function SignupPage() {
     password: "",
   };
   const [form, onChange] = useForm(initForm);
+  const [requestPost] = useRequestPost();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -21,9 +22,7 @@ export default function SignupPage() {
 
   const createUser = (event) => {
     event.preventDefault();
-
-    const result = requestPost(signupEntitie, form);
-    if (result) history.push("/user");
+    requestPost(signupEntitie, form);
   };
 
   return (
@@ -35,6 +34,8 @@ export default function SignupPage() {
           name="name"
           value={form.name}
           onChange={handleChange}
+          pattern="[A-Za-z].{2,}"
+          title="mínimo de 3 letras iniciais"
           required
         />
 
@@ -44,6 +45,8 @@ export default function SignupPage() {
           name="nickname"
           value={form.nickname}
           onChange={handleChange}
+          pattern="[A-Za-z].{2,}"
+          title="mínimo de 3 letras iniciais"
           required
         />
 
@@ -53,6 +56,8 @@ export default function SignupPage() {
           name="email"
           value={form.email}
           onChange={handleChange}
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="ex: nome@gmail.com"
           required
         />
 
@@ -61,6 +66,7 @@ export default function SignupPage() {
           type="password"
           name="password"
           pattern=".{6,}"
+          title="mínnimo de 6 caracters"
           value={form.password}
           onChange={handleChange}
           required

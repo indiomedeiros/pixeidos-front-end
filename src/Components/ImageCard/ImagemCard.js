@@ -1,5 +1,5 @@
 import styled from "styled-components"
-export const CardDivConteiner = styled.div`
+export const CardDivConteiner = styled.img`
     display: flex;
     width:400px;
     height: 300px;
@@ -9,10 +9,10 @@ export const CardDivConteiner = styled.div`
 `
 
 
-export default function ImageCard (){
+export default function ImageCard (props){
     return(
-        <CardDivConteiner>
+        <CardDivConteiner src = {props.src}/>
 
-        </CardDivConteiner>
+        
     )
 }

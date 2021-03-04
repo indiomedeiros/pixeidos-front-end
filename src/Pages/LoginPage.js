@@ -1,8 +1,8 @@
 import { useHistory } from "react-router-dom";
 import InputComponent from "../Components/Input/Input";
 import { useForm } from "../Hooks/useForm";
+import { useRequestPost } from "../Hooks/useRequestPost";
 import { loginEntitie } from "../Requests/entities";
-import { requestPost } from "../Requests/requests";
 
 export default function LoginPage() {
   const history = useHistory();
@@ -11,6 +11,8 @@ export default function LoginPage() {
     password: "",
   };
   const [form, onChange] = useForm(initForm);
+  const [resultRequest, requestPost] = useRequestPost();
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -19,8 +21,8 @@ export default function LoginPage() {
 
   const loginUser = (event) => {
     event.preventDefault();
-    const result = requestPost(loginEntitie, form);
-    if (result) history.push("/user");
+    requestPost(loginEntitie, form);
+    resultRequest && history.push("/user")
   };
 
   return (
@@ -32,6 +34,8 @@ export default function LoginPage() {
           name="email"
           value={form.email}
           onChange={handleChange}
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title= "ex: nome@gmail.com"
           required
         />
 
@@ -39,10 +43,10 @@ export default function LoginPage() {
           label="Password"
           type="password"
           name="password"
-          pattern=".{6,}"
-          title="mínimo de 6 caracters"
           value={form.password}
           onChange={handleChange}
+          pattern=".{6,}"
+          title="mínimo de 6 caracters"
           required
         />
         <button>{"Submit"}</button>

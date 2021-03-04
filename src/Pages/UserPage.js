@@ -1,8 +1,8 @@
 import { useHistory } from "react-router-dom";
 import InputComponent from "../Components/Input/Input";
 import { useForm } from "../Hooks/useForm";
-import { requestPost } from "../Requests/requests";
-import { createImageEntitie, signupEntitie } from "../Requests/entities";
+import { createImageEntitie } from "../Requests/entities";
+import { useRequestPost } from "../Hooks/useRequestPost";
 
 export default function UserPage() {
   const history = useHistory();
@@ -13,7 +13,7 @@ export default function UserPage() {
     collection: "",
   };
   const [form, onChange] = useForm(initForm);
-
+  const [resultRequest, requestPost] = useRequestPost();
   const handleChange = (event) => {
     const { name, value } = event.target;
     onChange(name, value);
@@ -22,7 +22,6 @@ export default function UserPage() {
   const createImagem = (event) => {
     event.preventDefault();
     const token = JSON.parse(localStorage.getItem("token"));
-    console.log(form);
     requestPost(createImageEntitie, form, token);
   };
 
@@ -35,12 +34,14 @@ export default function UserPage() {
           name="subtitle"
           value={form.subtitle}
           onChange={handleChange}
+          pattern="[A-Za-z].{2,}"
+          title= "minimo de 3 letras iniciais"
           required
         />
 
         <InputComponent
           label="file"
-          type="text"
+          type="file"
           name="file"
           value={form.file}
           onChange={handleChange}
@@ -53,6 +54,8 @@ export default function UserPage() {
           name="tags"
           value={form.tags}
           onChange={handleChange}
+          pattern="[A-Za-z].{2,}"
+          title= "minimo de 3 letras iniciais"
           required
         />
 
@@ -62,6 +65,8 @@ export default function UserPage() {
           name="collection"
           value={form.collection}
           onChange={handleChange}
+          pattern="[A-Za-z].{2,}"
+          title= "minimo de 3 letras iniciais"
           required
         />
         <button>{"Submit"}</button>
