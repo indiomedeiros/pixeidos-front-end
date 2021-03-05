@@ -1,11 +1,11 @@
-import { useHistory } from "react-router-dom";
+
 import InputComponent from "../Components/Input/Input";
 import { useForm } from "../Hooks/useForm";
 import { createImageEntitie } from "../Requests/entities";
 import { useRequestPost } from "../Hooks/useRequestPost";
-
+import {useProtectedPage} from "../Hooks/useProtectedPage"
 export default function UserPage() {
-  const history = useHistory();
+  useProtectedPage()
   const [requestPost] = useRequestPost();
   const [form, handleChange, clearInput] = useForm({
     subtitle: "",
@@ -37,7 +37,7 @@ export default function UserPage() {
 
         <InputComponent
           label="file"
-          type="file"
+          type="url"
           name="file"
           value={form.file}
           onChange={handleChange}

@@ -16,18 +16,29 @@ import {
 
 export default function Header(props) {
   const history = useHistory();
-
+  const token = localStorage.getItem("token");
   return (
     <HeaderContainer>
-      <ButtonTitle onClick={() => goToHomePage(history)}>PixMovement</ButtonTitle>
+      <ButtonTitle onClick={() => goToHomePage(history)}>
+        PixMovement
+      </ButtonTitle>
       <ButtonsContainer>
-        <ButtonLogin onClick={() => goTologinPage(history)}>Login</ButtonLogin>
-        <ButtonSignup onClick={() => goToSignupPage(history)}>
-          Signup
-        </ButtonSignup>
-        <ButtonUploud onClick={() => goToUploudPage(history)}>
-          Upload
-        </ButtonUploud>
+        {!token && (
+          <ButtonLogin onClick={() => goTologinPage(history)}>
+            Login
+          </ButtonLogin>
+        )}
+        
+        {!token && (
+          <ButtonSignup onClick={() => goToSignupPage(history)}>
+            Signup
+          </ButtonSignup>
+        )}
+        {token && (
+          <ButtonUploud onClick={() => goToUploudPage(history)}>
+            Upload
+          </ButtonUploud>
+        )}
       </ButtonsContainer>
     </HeaderContainer>
   );
