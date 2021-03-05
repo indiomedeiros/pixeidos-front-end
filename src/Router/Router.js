@@ -24,7 +24,6 @@ export default function Router() {
         <Route exact path="/user">
           <UserPage />
         </Route>
-
         <Route exact path="/image/:id">
           <ImageDetailsPage />
         </Route>

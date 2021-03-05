@@ -3,9 +3,14 @@ import { useState } from "react";
 export const useForm = (initState) => {
   const [form, setForm] = useState(initState);
 
-  const onChange = (name, value) => {
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setForm({ ...form, [name]: value });
   };
 
-  return [form, onChange];
+  const clearInput = () => {
+    setForm(initState);
+  };
+
+  return [form, handleChange, clearInput];
 };

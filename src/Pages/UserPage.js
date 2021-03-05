@@ -6,23 +6,19 @@ import { useRequestPost } from "../Hooks/useRequestPost";
 
 export default function UserPage() {
   const history = useHistory();
-  const initForm = {
+  const [requestPost] = useRequestPost();
+  const [form, handleChange, clearInput] = useForm({
     subtitle: "",
     file: "",
     tags: "",
     collection: "",
-  };
-  const [form, onChange] = useForm(initForm);
-  const [resultRequest, requestPost] = useRequestPost();
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    onChange(name, value);
-  };
+  });
 
   const createImagem = (event) => {
     event.preventDefault();
     const token = JSON.parse(localStorage.getItem("token"));
     requestPost(createImageEntitie, form, token);
+    clearInput()
   };
 
   return (
@@ -35,7 +31,7 @@ export default function UserPage() {
           value={form.subtitle}
           onChange={handleChange}
           pattern="[A-Za-z].{2,}"
-          title= "minimo de 3 letras iniciais"
+          title="minimo de 3 letras iniciais"
           required
         />
 
@@ -55,7 +51,7 @@ export default function UserPage() {
           value={form.tags}
           onChange={handleChange}
           pattern="[A-Za-z].{2,}"
-          title= "minimo de 3 letras iniciais"
+          title="minimo de 3 letras iniciais"
           required
         />
 
@@ -66,7 +62,7 @@ export default function UserPage() {
           value={form.collection}
           onChange={handleChange}
           pattern="[A-Za-z].{2,}"
-          title= "minimo de 3 letras iniciais"
+          title="minimo de 3 letras iniciais"
           required
         />
         <button>{"Submit"}</button>

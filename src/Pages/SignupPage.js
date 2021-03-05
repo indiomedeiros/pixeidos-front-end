@@ -6,23 +6,18 @@ import { useRequestPost } from "../Hooks/useRequestPost";
 
 export default function SignupPage() {
   const history = useHistory();
-  const initForm = {
+  const [requestPost] = useRequestPost();
+  const [form, handleChange, clearInput] = useForm({
     name: "",
     nickname: "",
     email: "",
     password: "",
-  };
-  const [form, onChange] = useForm(initForm);
-  const [requestPost] = useRequestPost();
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    onChange(name, value);
-  };
+  });
 
   const createUser = (event) => {
     event.preventDefault();
     requestPost(signupEntitie, form);
+    clearInput();
   };
 
   return (

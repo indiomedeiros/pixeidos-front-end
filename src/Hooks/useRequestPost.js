@@ -12,13 +12,12 @@ export const useRequestPost = () => {
       .then((response) => {
         response.data.token &&
           localStorage.setItem("token", JSON.stringify(response.data.token));
-        setResultRequest(response.data);
+        response.data.token && setResultRequest(response.data);
       })
       .catch((error) => {
-        error.response.data.error && alert(error.response.data.error)
+        error.response && alert(error.response.data.error);
       });
   };
 
   return [resultRequest, requestPost];
 };
- 

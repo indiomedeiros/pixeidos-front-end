@@ -6,23 +6,13 @@ import { loginEntitie } from "../Requests/entities";
 
 export default function LoginPage() {
   const history = useHistory();
-  const initForm = {
-    email: "",
-    password: "",
-  };
-  const [form, onChange] = useForm(initForm);
-  const [resultRequest, requestPost] = useRequestPost();
-
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    onChange(name, value);
-  };
+  const [form, handleChange, clearInput] = useForm({ email: "", password: "" });
+  const [requestPost] = useRequestPost();
 
   const loginUser = (event) => {
     event.preventDefault();
     requestPost(loginEntitie, form);
-    resultRequest && history.push("/user")
+    clearInput();
   };
 
   return (
@@ -35,7 +25,7 @@ export default function LoginPage() {
           value={form.email}
           onChange={handleChange}
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          title= "ex: nome@gmail.com"
+          title="ex: nome@gmail.com"
           required
         />
 
