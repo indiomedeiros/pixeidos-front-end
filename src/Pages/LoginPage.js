@@ -5,14 +5,14 @@ import { useRequestPost } from "../Hooks/useRequestPost";
 import { loginEntitie } from "../Requests/entities";
 
 export default function LoginPage() {
-  const history = useHistory();
   const [form, handleChange, clearInput] = useForm({ email: "", password: "" });
-  const [requestPost] = useRequestPost();
+  const [resultRequest, requestPost] = useRequestPost();
 
   const loginUser = (event) => {
     event.preventDefault();
     requestPost(loginEntitie, form);
     clearInput();
+    
   };
 
   return (

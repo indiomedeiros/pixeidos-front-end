@@ -13,7 +13,7 @@ export const useRequestGet = () => {
         setResultRequest(response.data);
       })
       .catch((error) => {
-        error.response && alert(error.response.data.error);
+        error.response && alert(error.response.data);
       });
   };
 

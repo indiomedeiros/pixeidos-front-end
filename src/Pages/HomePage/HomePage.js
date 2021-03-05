@@ -2,7 +2,6 @@ import ImageHomePage from "../../Components/ImageHomePage/ImageHomePage";
 import SearchInput from "../../Components/SearchInput/SearchInput";
 import { HomeImageDiv, HomeCardDiv } from "./styled";
 import ImageCard from "../../Components/ImageCard/ImagemCard";
-import { useHistory } from "react-router-dom";
 import { useState } from "react";
 
 import styled from "styled-components";
@@ -18,9 +17,9 @@ const Form = styled.form`
 `;
 
 export default function HomePage() {
-  const [searchData, setSearchData] = useState();
+
+  const [searchData, setSearchData] = useState("a");
   const [resultRequest, requestGet] = useRequestGet();
-  const history = useHistory();
   const token = JSON.parse(localStorage.getItem("token"));
 
   const handleInput = (event) => {
@@ -38,14 +37,17 @@ export default function HomePage() {
       <HomeImageDiv>
         <ImageHomePage />
         <Form onSubmit={searchImage}>
+        
           <SearchInput
             name={"search"}
             type={"text"}
             value={searchData}
             onChange={handleInput}
             placeholder={"Search"}
-            pattern=".{1,}"
+            pattern="[A-Za-z].{0,}"
+            title = {"only letters"}
           />
+          
         </Form>
       </HomeImageDiv>
       <HomeCardDiv>

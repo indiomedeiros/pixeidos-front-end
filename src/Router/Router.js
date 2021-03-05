@@ -10,24 +10,29 @@ import UserPage from "../Pages/UserPage";
 export default function Router() {
   return (
     <BrowserRouter>
-      <Header />
       <Switch>
         <Route exact path="/">
+          <Header />
           <HomePage />
         </Route>
         <Route exact path="/login">
+          <Header />
           <LoginPage />
         </Route>
         <Route exact path="/signup">
+          <Header />
           <SignupPage />
         </Route>
         <Route exact path="/user">
+          <Header />
           <UserPage />
         </Route>
         <Route exact path="/image/:id">
+          <Header />
           <ImageDetailsPage />
         </Route>
         <Route exact path="/uploud">
+          <Header />
           <UploudPage />
         </Route>
       </Switch>

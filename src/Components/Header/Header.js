@@ -5,11 +5,12 @@ import {
   goToSignupPage,
   goToUploudPage,
 } from "../../Coordination/coordination";
+import { logout } from "../../Services/logout";
 import {
   HeaderContainer,
   ButtonTitle,
   ButtonsContainer,
-  ButtonLogin,
+  ButtonLoginLogout,
   ButtonSignup,
   ButtonUploud,
 } from "./styled";
@@ -17,6 +18,7 @@ import {
 export default function Header(props) {
   const history = useHistory();
   const token = localStorage.getItem("token");
+
   return (
     <HeaderContainer>
       <ButtonTitle onClick={() => goToHomePage(history)}>
@@ -24,11 +26,16 @@ export default function Header(props) {
       </ButtonTitle>
       <ButtonsContainer>
         {!token && (
-          <ButtonLogin onClick={() => goTologinPage(history)}>
+          <ButtonLoginLogout onClick={() => goTologinPage(history)}>
             Login
-          </ButtonLogin>
+          </ButtonLoginLogout>
         )}
-        
+        {token && (
+          <ButtonLoginLogout onClick={() => logout(history)}>
+            Logout
+          </ButtonLoginLogout>
+        )}
+
         {!token && (
           <ButtonSignup onClick={() => goToSignupPage(history)}>
             Signup

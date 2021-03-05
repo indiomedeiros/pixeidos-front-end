@@ -18,7 +18,7 @@ export const ButtonsContainer = styled.div `
 export const MarginOfButtons = styled.button `
     margin-right: 10px;
 `
-export const ButtonLogin = styled(MarginOfButtons)`
+export const ButtonLoginLogout= styled(MarginOfButtons)`
 
 `
 
