@@ -3,10 +3,10 @@ import SearchInput from "../../Components/SearchInput/SearchInput";
 import { HomeImageDiv, HomeCardDiv } from "./styled";
 import ImageCard from "../../Components/ImageCard/ImagemCard";
 import { useState } from "react";
-
 import styled from "styled-components";
 import { useRequestGet } from "../../Hooks/useRequestGet";
-import { searchImageEntitie } from "../../Requests/entities";
+import { searchImageURL } from "../../Requests/entities";
+
 const Form = styled.form`
   width: 50%;
   height: 5vh;
@@ -29,7 +29,7 @@ export default function HomePage() {
 
   const searchImage = (event) => {
     event.preventDefault();
-    requestGet(searchImageEntitie, token, searchData);
+    requestGet(searchImageURL, token, searchData);
   };
 
   return (
