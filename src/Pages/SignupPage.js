@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import InputComponent from "../Components/Input/Input";
 import { useForm } from "../Hooks/useForm";
-import { signupEntitie } from "../Requests/entities";
+import { signupURL } from "../Requests/entities";
 import { useRequestPost } from "../Hooks/useRequestPost";
 
 export default function SignupPage() {
@@ -16,7 +16,7 @@ export default function SignupPage() {
 
   const createUser = (event) => {
     event.preventDefault();
-    requestPost(signupEntitie, form);
+    requestPost(signupURL, form);
     clearInput();
   };
 

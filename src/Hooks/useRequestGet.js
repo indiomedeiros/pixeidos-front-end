@@ -4,9 +4,9 @@ import axios from "axios";
 export const useRequestGet = () => {
   const [resultRequest, setResultRequest] = useState();
 
-  const requestGet = (entitie, token, dataSearch) => {
+  const requestGet = (URL, token, dataSearch) => {
     axios
-      .get(entitie + dataSearch, {
+      .get(URL + dataSearch, {
         headers: { authorization: token },
       })
       .then((response) => {

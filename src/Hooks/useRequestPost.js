@@ -7,9 +7,9 @@ export const useRequestPost = () => {
   const history = useHistory();
   const [resultRequest, setResultRequest] = useState();
 
-  const requestPost = (entitie, body, token) => {
+  const requestPost = (URL, body, token) => {
     axios
-      .post(`${entitie}`, body, {
+      .post(`${URL}`, body, {
         headers: { authorization: token },
       })
       .then((response) => {

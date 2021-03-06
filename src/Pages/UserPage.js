@@ -1,9 +1,9 @@
 
 import InputComponent from "../Components/Input/Input";
 import { useForm } from "../Hooks/useForm";
-import { createImageEntitie } from "../Requests/entities";
 import { useRequestPost } from "../Hooks/useRequestPost";
 import {useProtectedPage} from "../Hooks/useProtectedPage"
+import { createImageURL } from "../Requests/entities";
 export default function UserPage() {
   useProtectedPage()
   const [requestPost] = useRequestPost();
@@ -17,7 +17,7 @@ export default function UserPage() {
   const createImagem = (event) => {
     event.preventDefault();
     const token = JSON.parse(localStorage.getItem("token"));
-    requestPost(createImageEntitie, form, token);
+    requestPost(createImageURL, form, token);
     clearInput()
   };
 

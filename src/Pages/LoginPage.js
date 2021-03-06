@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import InputComponent from "../Components/Input/Input";
 import { useForm } from "../Hooks/useForm";
 import { useRequestPost } from "../Hooks/useRequestPost";
-import { loginEntitie } from "../Requests/entities";
+import { loginURL } from "../Requests/entities";
 
 export default function LoginPage() {
   const [form, handleChange, clearInput] = useForm({ email: "", password: "" });
@@ -10,7 +10,7 @@ export default function LoginPage() {
 
   const loginUser = (event) => {
     event.preventDefault();
-    requestPost(loginEntitie, form);
+    requestPost(loginURL, form);
     clearInput();
     
   };
