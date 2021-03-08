@@ -9,4 +9,5 @@ export const HomeCardDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  position: absolute;
 `

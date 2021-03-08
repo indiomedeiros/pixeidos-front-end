@@ -6,7 +6,7 @@ import {useProtectedPage} from "../Hooks/useProtectedPage"
 import { createImageURL } from "../Requests/entities";
 export default function UserPage() {
   useProtectedPage()
-  const [requestPost] = useRequestPost();
+  const [resultRequest, requestPost] = useRequestPost();
   const [form, handleChange, clearInput] = useForm({
     subtitle: "",
     file: "",
@@ -17,6 +17,7 @@ export default function UserPage() {
   const createImagem = (event) => {
     event.preventDefault();
     const token = JSON.parse(localStorage.getItem("token"));
+    console.log(createImageURL, form, token)
     requestPost(createImageURL, form, token);
     clearInput()
   };
