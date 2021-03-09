@@ -4,7 +4,9 @@ import { useForm } from "../Hooks/useForm";
 import { useRequestPost } from "../Hooks/useRequestPost";
 import {useProtectedPage} from "../Hooks/useProtectedPage"
 import { createImageURL } from "../Requests/entities";
+
 export default function UserPage() {
+
   useProtectedPage()
   const [resultRequest, requestPost] = useRequestPost();
   const [form, handleChange, clearInput] = useForm({
@@ -20,11 +22,14 @@ export default function UserPage() {
     console.log(createImageURL, form, token)
     requestPost(createImageURL, form, token);
     clearInput()
+    console.log("result", resultRequest)
   };
 
   return (
     <div>
+      
       <form onSubmit={createImagem}>
+      <h1>Create image</h1>
         <InputComponent
           label="Subtitle"
           type="text"

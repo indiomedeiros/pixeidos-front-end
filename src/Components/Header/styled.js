@@ -21,6 +21,9 @@ export const MarginOfButtons = styled.button `
 export const ButtonLoginLogout= styled(MarginOfButtons)`
 
 `
+export const ButtonUser = styled(MarginOfButtons)`
+
+`
 
 export const ButtonSignup = styled(MarginOfButtons)`
 
