@@ -16,8 +16,8 @@ export default function ImageModal(props) {
     <ModalConteiner>
       <Img src={props.src} onClick={props.onClick} />
       <p>Subtitle: {props.subtitle}</p>
-      <p>author: {props.author}</p>
-      <p>Date: {props.date}</p>
+      <p>Author: {props.author}</p>
+      <p>Yaer: {props.date}</p>
       <p>Tags: {props.tags}</p>
       <p>Collection: {props.collection}</p>
     </ModalConteiner>

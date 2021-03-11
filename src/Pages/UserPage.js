@@ -5,16 +5,18 @@ import { useRequestPost } from "../Hooks/useRequestPost";
 import {useProtectedPage} from "../Hooks/useProtectedPage"
 import { createImageURL } from "../Requests/entities";
 
+
+
 export default function UserPage() {
 
   useProtectedPage()
   const [resultRequest, requestPost] = useRequestPost();
   const [form, handleChange, clearInput] = useForm({
     subtitle: "",
-    file: "",
     tags: "",
     collection: "",
   });
+  
 
   const createImagem = (event) => {
     event.preventDefault();
@@ -27,10 +29,21 @@ export default function UserPage() {
 
   return (
     <div>
-      
+      {console.log("form", form)}
       <form onSubmit={createImagem}>
       <h1>Create image</h1>
-        <InputComponent
+      
+      <InputComponent
+          label="file"
+          type="url"
+          name="file"
+          value={form.file}
+          onChange={handleChange}
+          required
+        />
+       
+  
+        {form.file && <InputComponent
           label="Subtitle"
           type="text"
           name="subtitle"
@@ -39,18 +52,11 @@ export default function UserPage() {
           pattern="[A-Za-z].{2,}"
           title="minimo de 3 letras iniciais"
           required
-        />
+        />}
 
-        <InputComponent
-          label="file"
-          type="url"
-          name="file"
-          value={form.file}
-          onChange={handleChange}
-          required
-        />
+        
 
-        <InputComponent
+        {form.subtitle && <InputComponent
           label="tags"
           type="text"
           name="tags"
@@ -59,9 +65,9 @@ export default function UserPage() {
           pattern="[A-Za-z].{2,}"
           title="minimo de 3 letras iniciais"
           required
-        />
+        />}
 
-        <InputComponent
+        {form.tags && <InputComponent
           label="collection"
           type="text"
           name="collection"
@@ -70,8 +76,9 @@ export default function UserPage() {
           pattern="[A-Za-z].{2,}"
           title="minimo de 3 letras iniciais"
           required
-        />
-        <button>{"Submit"}</button>
+        />}
+        {form.collection && <button>{"Submit"}</button>}
+        <img src = {form.file}/>
       </form>
     </div>
   );

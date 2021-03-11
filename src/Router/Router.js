@@ -4,7 +4,8 @@ import HomePage from "../Pages/HomePage/HomePage";
 import ImageDetailsPage from "../Pages/ImageDetailsPage";
 import LoginPage from "../Pages/LoginPage";
 import SignupPage from "../Pages/SignupPage";
-import UploudPage from "../Pages/UploudPage";
+import UploadPage from "../Pages/UploadPage";
+
 import UserPage from "../Pages/UserPage";
 
 export default function Router() {
@@ -33,7 +34,7 @@ export default function Router() {
         </Route>
         <Route exact path="/uploud">
           <Header />
-          <UploudPage />
+          <UploadPage />
         </Route>
       </Switch>
     </BrowserRouter>

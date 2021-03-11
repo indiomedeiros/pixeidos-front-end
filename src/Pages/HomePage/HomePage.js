@@ -39,6 +39,7 @@ export default function HomePage() {
 
   return (
     <div>
+      
       <HomeImageDiv>
         <MainImageHomePage src="https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_1280.jpg" />
 
@@ -65,16 +66,18 @@ export default function HomePage() {
 
         {modal &&
           modal.map((image) => {
+            {console.log("render image", image.date.split("-")[0])}
             return (
               <ImageModal
                 src={image.file}
                 subtitle={image.subtitle}
                 author={image.author}
-                date={image.date}
+                date={image.date.split("-")[0]}
                 tags={image.tags}
                 collection={image.collection}
-                onClick={showModal}
+                onClick={showModal} 
               />
+              
             );
           })}
       </HomeCardDiv>
