@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { goToUserPage } from "../Coordination/coordination";
+import { goTologinPage, goToUserPage } from "../Coordination/coordination";
 import { useHistory } from "react-router";
 
 export const useRequestPost = () => {
@@ -19,7 +19,14 @@ export const useRequestPost = () => {
         response.data.token && goToUserPage(history);
       })
       .catch((error) => {
-        error.response && alert(error.response.data.error);
+        error.response.data === "jwt expired" &&
+          alert("Your session has expired. Sign in again");
+        localStorage.removeItem("token");
+        goTologinPage(history);
+
+        error.response &&
+          !error.response.data === "jwt expired" &&
+          alert(error.response.data);
       });
   };
 
