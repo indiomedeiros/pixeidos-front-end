@@ -4,15 +4,18 @@ import ImageCard from "../../Components/ImageCard/ImagemCard";
 import { useState } from "react";
 import { useRequestGet } from "../../Hooks/useRequestGet";
 import { searchImageURL } from "../../Requests/entities";
-import ImageModal from "../../Components/Modal/ImageModal";
+
 import { useEffect } from "react";
 import MainImageHomePage from "../../Components/MainImageHomePage/MainImageHomePage";
+import mainImage from "../../Assents/img/main_image.jpg";
+import SpringModal from "../../Components/Modal/SpringModal";
 
 export default function HomePage() {
   const dataInitialResearch = "a";
   const [searchData, setSearchData] = useState(dataInitialResearch);
   const [resultRequest, requestGet] = useRequestGet();
   const [modal, setModal] = useState();
+  const [widownModal, setWidownModal] = useState();
   const token = JSON.parse(localStorage.getItem("token"));
 
   useEffect(() => {
@@ -27,21 +30,26 @@ export default function HomePage() {
   const searchImage = (event) => {
     event.preventDefault();
     requestGet(searchImageURL, token, searchData);
-    setModal(false);
   };
 
-  const showModal = (event) => {
-    const imageData = resultRequest.filter(
-      (image) => image.id === event.target.id
-    );
-    setModal(imageData);
+  const closeModal = () => {
+    setWidownModal(false);
+  };
+  const openModal = () => {
+    setWidownModal(true);
+  };
+
+  const putDataInModal = (event) => {
+    const imageId = event.target.id;
+    const image = resultRequest.filter((image) => image.id === imageId);
+    setModal(image[0]);
+    openModal(true);
   };
 
   return (
     <div>
-      
       <HomeImageDiv>
-        <MainImageHomePage src="https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_1280.jpg" />
+        <MainImageHomePage src={mainImage} />
 
         <Form onSubmit={searchImage}>
           <SearchInput
@@ -60,26 +68,25 @@ export default function HomePage() {
         {resultRequest &&
           resultRequest.map((image) => {
             return (
-              <ImageCard src={image.file} id={image.id} onClick={showModal} />
-            );
-          })}
-
-        {modal &&
-          modal.map((image) => {
-            {console.log("render image", image.date.split("-")[0])}
-            return (
-              <ImageModal
+              <ImageCard
                 src={image.file}
-                subtitle={image.subtitle}
-                author={image.author}
-                date={image.date.split("-")[0]}
-                tags={image.tags}
-                collection={image.collection}
-                onClick={showModal} 
+                id={image.id}
+                onClick={putDataInModal}
               />
-              
             );
           })}
+        {modal && (
+          <SpringModal
+            open={widownModal}
+            onClose={closeModal}
+            src={modal.file}
+            subtitle={modal.subtitle}
+            author={modal.author}
+            date={modal.date.split("-")[0]}
+            tags={modal.tags}
+            collection={modal.collection}
+          />
+        )}
       </HomeCardDiv>
     </div>
   );
