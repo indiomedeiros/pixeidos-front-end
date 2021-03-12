@@ -2,25 +2,9 @@ import InputComponent from "../../Components/Input/Input";
 import { useForm } from "../../Hooks/useForm";
 import { useRequestPost } from "../../Hooks/useRequestPost";
 import { loginURL } from "../../Requests/entities";
-import styled from "styled-components";
-import imageLogin from "../../Assents/img/login_image.jpg"
+import imageLogin from "../../Assents/img/login_image.jpg";
 import MainImagePage from "../../Components/MainImagePage/MainImagePage";
-
-export const Form = styled.form`
-  border: 1px solid white;
-  height: 33vh;
-  max-width: 50vw;
-  width: 100%;
-  text-align: center;
-  position: absolute;
-`;
-export const Div = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-
+import { Div, Form, Title, Button } from "./styled";
 
 export default function LoginPage() {
   const [form, handleChange, clearInput] = useForm({ email: "", password: "" });
@@ -34,8 +18,10 @@ export default function LoginPage() {
 
   return (
     <Div>
-      <MainImagePage src = {imageLogin} />
+      <MainImagePage src={imageLogin} />
+
       <Form onSubmit={loginUser}>
+        <Title>Get in the movement</Title>
         <InputComponent
           label="E-mail"
           type="email"
@@ -60,7 +46,7 @@ export default function LoginPage() {
           required
         />
         <div>
-          <button>{"Submit"}</button>
+          <Button>{"Login"}</Button>
         </div>
       </Form>
     </Div>

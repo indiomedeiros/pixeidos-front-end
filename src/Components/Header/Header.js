@@ -15,6 +15,7 @@ import {
   ButtonSignup,
   ButtonUploud,
   ButtonUser,
+  Title
 } from "./styled";
 
 export default function Header(props) {
@@ -23,14 +24,17 @@ export default function Header(props) {
 
   return (
     <HeaderContainer>
-      <ButtonTitle onClick={() => goToHomePage(history)}>
-        PixMovement
-      </ButtonTitle>
+      <Title>
+        Pix
+        <ButtonTitle onClick={() => goToHomePage(history)}>
+          Movement
+        </ButtonTitle>
+      </Title>
       <ButtonsContainer>
         {token && (
           <ButtonUser onClick={() => goToUserPage(history)}>Myspace</ButtonUser>
         )}
-        
+
         {!token && (
           <ButtonSignup onClick={() => goToSignupPage(history)}>
             Signup
@@ -43,7 +47,6 @@ export default function Header(props) {
           </ButtonLoginLogout>
         )}
 
-        
         {/* {token && (
           <ButtonUploud onClick={() => goToUploudPage(history)}>
             Upload

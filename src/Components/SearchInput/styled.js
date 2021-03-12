@@ -1,19 +1,20 @@
 import styled from "styled-components";
 
 export const SearchEntryInput = styled.input`
-
-  width: 40vw;
+  width: 30vw;
+  font-size: 2em;
+  color: #4717F6;
   border: none;
   border-radius: 8px;
   height: 5vh;
-  position: absolute;
   ::placeholder {
-    text-align: center;
-    font-size: 2em;
+    padding: 10px;    
     color: #d1d1d1
+    
   }
   :focus{
     outline: none;
+    
   }
   
 `;
