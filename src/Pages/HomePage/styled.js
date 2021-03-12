@@ -10,7 +10,7 @@ export const HomeCardDiv = styled.div`
   width: 100vw;
   flex-wrap: wrap;
   justify-content: center;
-  position: absolute;
+
 `
 export const Form = styled.form`
   width: 50%;

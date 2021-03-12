@@ -15,7 +15,7 @@ export default function HomePage() {
   const [searchData, setSearchData] = useState(dataInitialResearch);
   const [resultRequest, requestGet] = useRequestGet();
   const [modal, setModal] = useState();
-  const [widownModal, setWidownModal] = useState();
+  const [widowModal, setWidowModal] = useState();
   const token = JSON.parse(localStorage.getItem("token"));
 
   useEffect(() => {
@@ -33,10 +33,10 @@ export default function HomePage() {
   };
 
   const closeModal = () => {
-    setWidownModal(false);
+    setWidowModal(false);
   };
   const openModal = () => {
-    setWidownModal(true);
+    setWidowModal(true);
   };
 
   const putDataInModal = (event) => {
@@ -77,7 +77,7 @@ export default function HomePage() {
           })}
         {modal && (
           <SpringModal
-            open={widownModal}
+            open={widowModal}
             onClose={closeModal}
             src={modal.file}
             subtitle={modal.subtitle}

@@ -5,7 +5,7 @@ export const HeaderContainer = styled.div`
     font-weight: bolder;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid black;
+ 
     padding: 0px 30px;
     height: 70px;  
    

@@ -51,7 +51,7 @@ export const Fade = React.forwardRef(function Fade(props, ref) {
     font-family: open sans;
   `;
   export const P = styled.p`
-    font-size: 1.2em;
+    font-size: 0.9em;
   `;
   export const ModalStyled = styled(Modal)`
     display: flex;
