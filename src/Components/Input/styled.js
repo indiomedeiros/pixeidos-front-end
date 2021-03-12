@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
 export const Input = styled.input`
+  max-width: 600px;
   width: 100%;
-  height: 70%;
+  height: 20%;
   border-radius: 10px;
   border: none;
   font-size: 1.5em;
+  margin: 20px 0px;
+  ::placeholder{
+    text-align: center;
+    color: #d1d1d1
+  }
   
 `;
 
-export const InputContainer = styled.div`
-  text-align: left;
-  margin: auto;
-  margin-bottom: 8px;
-  height: 56px;
-  width: 80%;
-`;
+

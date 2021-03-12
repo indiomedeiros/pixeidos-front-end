@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRequestGet } from "../../Hooks/useRequestGet";
 import { searchImageURL, getUserByIdURL } from "../../Requests/entities";
 import { useEffect } from "react";
-import MainImageHomePage from "../../Components/MainImageHomePage/MainImageHomePage";
+import MainImagePage from "../../Components/MainImagePage/MainImagePage";
 import mainImage from "../../Assents/img/main_image.jpg";
 import SpringModal from "../../Components/Modal/SpringModal";
 
@@ -19,7 +19,8 @@ export default function HomePage() {
   const token = JSON.parse(localStorage.getItem("token"));
 
   useEffect(() => {
-    requestGet(searchImageURL + searchData, token);
+    const URL = searchImageURL + searchData
+    requestGet(URL, token);
   }, []);
 
   const handleSearchInput = (event) => {
@@ -29,7 +30,8 @@ export default function HomePage() {
 
   const searchImage = (event) => {
     event.preventDefault();
-    requestGet(searchImageURL + searchData, token);
+    const URL = searchImageURL + searchData
+    requestGet(URL, token);
   };
 
   const closeModal = () => {
@@ -40,7 +42,8 @@ export default function HomePage() {
   };
 
   const getUserData = (author) => {
-    requestGetUser(getUserByIdURL + author, token);
+    const URL = getUserByIdURL + author
+    requestGetUser(URL, token);
   };
 
   const putDataInModal = (event) => {
@@ -57,7 +60,7 @@ export default function HomePage() {
   return (
     <div>
       <HomeImageDiv>
-        <MainImageHomePage src={mainImage} />
+        <MainImagePage src={mainImage} />
 
         <Form onSubmit={searchImage}>
           <SearchInput
@@ -65,7 +68,7 @@ export default function HomePage() {
             type={"text"}
             value={searchData}
             onChange={handleSearchInput}
-            placeholder={"Search"}
+            placeholder={"Search images"}
             pattern="[A-Za-z].{0,}"
             title={"only letters"}
           />
@@ -90,7 +93,7 @@ export default function HomePage() {
             onClose={closeModal}
             src={modal.file}
             subtitle={modal.subtitle}
-            author={resultRequestUser.name}
+            author={resultRequestUser && resultRequestUser.name}
             date={modal.date.split("-")[0]}
             tags={modal.tags}
             collection={modal.collection}

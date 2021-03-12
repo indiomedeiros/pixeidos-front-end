@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SearchEntryInput = styled.input`
-  font-size: 1em;
+
   width: 40vw;
   border: none;
   border-radius: 8px;
@@ -10,9 +10,10 @@ export const SearchEntryInput = styled.input`
   ::placeholder {
     text-align: center;
     font-size: 2em;
+    color: #d1d1d1
   }
   :focus{
     outline: none;
   }
-  font-family: open sans;
+  
 `;
