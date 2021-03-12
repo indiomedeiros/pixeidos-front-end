@@ -3,8 +3,7 @@ import { HomeImageDiv, HomeCardDiv, Form } from "./styled";
 import ImageCard from "../../Components/ImageCard/ImagemCard";
 import { useState } from "react";
 import { useRequestGet } from "../../Hooks/useRequestGet";
-import { searchImageURL } from "../../Requests/entities";
-
+import { searchImageURL, getUserByIdURL } from "../../Requests/entities";
 import { useEffect } from "react";
 import MainImageHomePage from "../../Components/MainImageHomePage/MainImageHomePage";
 import mainImage from "../../Assents/img/main_image.jpg";
@@ -14,12 +13,13 @@ export default function HomePage() {
   const dataInitialResearch = "a";
   const [searchData, setSearchData] = useState(dataInitialResearch);
   const [resultRequest, requestGet] = useRequestGet();
+  const [resultRequestUser, requestGetUser] = useRequestGet();
   const [modal, setModal] = useState();
   const [widowModal, setWidowModal] = useState();
   const token = JSON.parse(localStorage.getItem("token"));
 
   useEffect(() => {
-    requestGet(searchImageURL, token, searchData);
+    requestGet(searchImageURL + searchData, token);
   }, []);
 
   const handleSearchInput = (event) => {
@@ -29,7 +29,7 @@ export default function HomePage() {
 
   const searchImage = (event) => {
     event.preventDefault();
-    requestGet(searchImageURL, token, searchData);
+    requestGet(searchImageURL + searchData, token);
   };
 
   const closeModal = () => {
@@ -39,10 +39,18 @@ export default function HomePage() {
     setWidowModal(true);
   };
 
+  const getUserData = (author) => {
+    requestGetUser(getUserByIdURL + author, token);
+  };
+
   const putDataInModal = (event) => {
-    const imageId = event.target.id;
+    const { id, name } = event.target;
+    const author = name;
+    const imageId = id;
     const image = resultRequest.filter((image) => image.id === imageId);
+
     setModal(image[0]);
+    getUserData(author);
     openModal(true);
   };
 
@@ -72,6 +80,7 @@ export default function HomePage() {
                 src={image.file}
                 id={image.id}
                 onClick={putDataInModal}
+                name={image.author}
               />
             );
           })}
@@ -81,7 +90,7 @@ export default function HomePage() {
             onClose={closeModal}
             src={modal.file}
             subtitle={modal.subtitle}
-            author={modal.author}
+            author={resultRequestUser.name}
             date={modal.date.split("-")[0]}
             tags={modal.tags}
             collection={modal.collection}
