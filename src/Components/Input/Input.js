@@ -1,10 +1,8 @@
 import React from "react";
-import {InputContainer, Input } from "./styled"
+import { Input } from "./styled"
 export default function InputComponent(props) {
   return (
-    <InputContainer>
-    <label>
-     {props.label}
+
         <Input
             type={props.type}
             name={props.name}
@@ -12,9 +10,9 @@ export default function InputComponent(props) {
             onChange={props.onChange}
             pattern={props.pattern}
             title={props.title}
+            placeholder = {props.placeholder}
             required
         />
-      </label>
-    </InputContainer>
+  
   );
 }
