@@ -1,8 +1,24 @@
 import { useHistory } from "react-router-dom";
-import InputComponent from "../Components/Input/Input";
-import { useForm } from "../Hooks/useForm";
-import { useRequestPost } from "../Hooks/useRequestPost";
-import { loginURL } from "../Requests/entities";
+import InputComponent from "../../Components/Input/Input";
+import { useForm } from "../../Hooks/useForm";
+import { useRequestPost } from "../../Hooks/useRequestPost";
+import { loginURL } from "../../Requests/entities";
+import styled from "styled-components";
+
+export const Form = styled.form`
+  border: 1px solid white;
+  height: 33vh;
+  max-width: 50vw;
+  width: 100%;
+  text-align: center;
+`;
+export const Div = styled.div`
+  background-color: #0b986a;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default function LoginPage() {
   const [form, handleChange, clearInput] = useForm({ email: "", password: "" });
@@ -12,12 +28,11 @@ export default function LoginPage() {
     event.preventDefault();
     requestPost(loginURL, form);
     clearInput();
-    
   };
 
   return (
-    <div>
-      <form onSubmit={loginUser}>
+    <Div>
+      <Form onSubmit={loginUser}>
         <InputComponent
           label="E-mail"
           type="email"
@@ -40,7 +55,7 @@ export default function LoginPage() {
           required
         />
         <button>{"Submit"}</button>
-      </form>
-    </div>
+      </Form>
+    </Div>
   );
 }

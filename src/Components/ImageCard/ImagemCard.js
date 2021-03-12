@@ -1,11 +1,5 @@
-import styled from "styled-components"
-export const CardDivConteiner = styled.img`
-    display: flex;
-    width:400px;
-    height: 300px;
-    position: relative;
-    margin: 5px;
-`
+import { CardDivConteiner } from "./styled"
+
 
 
 export default function ImageCard (props){

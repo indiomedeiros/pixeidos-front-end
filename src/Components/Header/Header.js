@@ -30,6 +30,12 @@ export default function Header(props) {
         {token && (
           <ButtonUser onClick={() => goToUserPage(history)}>Myspace</ButtonUser>
         )}
+        
+        {!token && (
+          <ButtonSignup onClick={() => goToSignupPage(history)}>
+            Signup
+          </ButtonSignup>
+        )}
 
         {!token && (
           <ButtonLoginLogout onClick={() => goTologinPage(history)}>
@@ -37,11 +43,7 @@ export default function Header(props) {
           </ButtonLoginLogout>
         )}
 
-        {!token && (
-          <ButtonSignup onClick={() => goToSignupPage(history)}>
-            Signup
-          </ButtonSignup>
-        )}
+        
         {/* {token && (
           <ButtonUploud onClick={() => goToUploudPage(history)}>
             Upload

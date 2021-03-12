@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import HomePage from "../Pages/HomePage/HomePage";
 import ImageDetailsPage from "../Pages/ImageDetailsPage";
-import LoginPage from "../Pages/LoginPage";
+import LoginPage from "../Pages/LoginPage/LoginPage";
 import SignupPage from "../Pages/SignupPage";
 import UploadPage from "../Pages/UploadPage";
 
