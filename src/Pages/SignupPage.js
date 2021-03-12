@@ -3,6 +3,10 @@ import InputComponent from "../Components/Input/Input";
 import { useForm } from "../Hooks/useForm";
 import { signupURL } from "../Requests/entities";
 import { useRequestPost } from "../Hooks/useRequestPost";
+import { Button, Div, Form, Title } from "./LoginPage/styled";
+import MainImagePage from "../Components/MainImagePage/MainImagePage";
+import imageLogin from "../Assents/img/signup_image.jpg";
+
 
 export default function SignupPage() {
   const history = useHistory();
@@ -21,8 +25,13 @@ export default function SignupPage() {
   };
 
   return (
-    <div>
-      <form onSubmit={createUser}>
+
+
+    <Div>
+      <MainImagePage src={imageLogin} />
+
+      <Form onSubmit={createUser}>
+        <Title>Wake up in motion</Title>
         <InputComponent
           label="Nome"
           type="text"
@@ -31,6 +40,7 @@ export default function SignupPage() {
           onChange={handleChange}
           pattern="[A-Za-z].{2,}"
           title="mínimo de 3 letras iniciais"
+          placeholder={"Name"}
           required
         />
 
@@ -43,6 +53,7 @@ export default function SignupPage() {
           pattern="[A-Za-z].{2,}"
           title="mínimo de 3 letras iniciais"
           required
+          placeholder={"Nickname"}
         />
 
         <InputComponent
@@ -54,6 +65,7 @@ export default function SignupPage() {
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           title="ex: nome@gmail.com"
           required
+          placeholder={"E-mail"}
         />
 
         <InputComponent
@@ -64,10 +76,19 @@ export default function SignupPage() {
           title="mínnimo de 6 caracters"
           value={form.password}
           onChange={handleChange}
+          placeholder={"Password"}
           required
         />
-        <button>{"Submit"}</button>
-      </form>
-    </div>
+
+        <div>
+          <Button>{"Signup"}</Button>
+        </div>
+      </Form>
+    </Div>
+    // <div>
+    //   <form onSubmit={createUser}>
+    //     <button>{"Submit"}</button>
+    //   </form>
+    // </div>
   );
 }

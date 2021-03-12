@@ -6,7 +6,7 @@ import LoginPage from "../Pages/LoginPage/LoginPage";
 import SignupPage from "../Pages/SignupPage";
 import UploadPage from "../Pages/UploadPage";
 
-import UserPage from "../Pages/UserPage";
+import UserPage from "../Pages/UserPage/UserPage";
 
 export default function Router() {
   return (

@@ -1,5 +1,5 @@
 import SearchInput from "../../Components/SearchInput/SearchInput";
-import { HomeImageDiv, HomeCardDiv, Form } from "./styled";
+import { HomeImageDiv, HomeCardDiv, Form, Title } from "./styled";
 import ImageCard from "../../Components/ImageCard/ImagemCard";
 import { useState } from "react";
 import { useRequestGet } from "../../Hooks/useRequestGet";
@@ -19,7 +19,7 @@ export default function HomePage() {
   const token = JSON.parse(localStorage.getItem("token"));
 
   useEffect(() => {
-    const URL = searchImageURL + searchData
+    const URL = searchImageURL + searchData;
     requestGet(URL, token);
   }, []);
 
@@ -30,7 +30,7 @@ export default function HomePage() {
 
   const searchImage = (event) => {
     event.preventDefault();
-    const URL = searchImageURL + searchData
+    const URL = searchImageURL + searchData;
     requestGet(URL, token);
   };
 
@@ -42,7 +42,7 @@ export default function HomePage() {
   };
 
   const getUserData = (author) => {
-    const URL = getUserByIdURL + author
+    const URL = getUserByIdURL + author;
     requestGetUser(URL, token);
   };
 
@@ -63,12 +63,14 @@ export default function HomePage() {
         <MainImagePage src={mainImage} />
 
         <Form onSubmit={searchImage}>
+          <Title>Images Made of motion</Title>
+
           <SearchInput
             name={"search"}
             type={"text"}
             value={searchData}
             onChange={handleSearchInput}
-            placeholder={"Search images"}
+            placeholder={"Search movements"}
             pattern="[A-Za-z].{0,}"
             title={"only letters"}
           />
@@ -93,7 +95,7 @@ export default function HomePage() {
             onClose={closeModal}
             src={modal.file}
             subtitle={modal.subtitle}
-            author={resultRequestUser && resultRequestUser.name}
+            author={resultRequestUser ? resultRequestUser.name : modal.author }
             date={modal.date.split("-")[0]}
             tags={modal.tags}
             collection={modal.collection}

@@ -4,12 +4,13 @@ export const Form = styled.form`
   height: 33vh;
   max-width: 50vw;
   width: 100%;
-  text-align: center;
+  margin-left: 30px;
   position: absolute;
+  
 `;
 export const Div = styled.div`
   display: flex;
-  justify-content: center;
+  
   align-items: flex-start;
   
 `;
@@ -33,8 +34,13 @@ export const Button = styled.button`
   }
 `;
 export const Title = styled.h1`
-    padding: 50px 0px;
+    padding: 20px 0px;
     font-size: 3em;
     color: white;
   
 `
+export const Img = styled.div`
+  position: absolute;
+  text-align: right;
+  
+` 

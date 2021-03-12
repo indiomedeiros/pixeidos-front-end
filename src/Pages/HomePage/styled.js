@@ -2,21 +2,23 @@ import styled from "styled-components";
 
 export const HomeImageDiv = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  background-color: black;
+`;
+export const Form = styled.form`
+  margin-left: 5vw;
+  position: absolute;
 `;
 export const HomeCardDiv = styled.div`
   display: flex;
-  width: 100vw;
   flex-wrap: wrap;
   justify-content: center;
 
-`
-export const Form = styled.form`
-  width: 50%;
-  height: 5vh;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+`;
+
+export const Title = styled.h1`
+  font-size: 3em;
+  color: white;
+  font-family: roboto;
 `;
