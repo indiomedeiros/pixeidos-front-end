@@ -1,46 +1,98 @@
 import styled from "styled-components";
 
-export const Form = styled.form`
-  height: 33vh;
-  max-width: 50vw;
-  width: 100%;
-  margin-left: 30px;
-  position: absolute;
-  
-`;
 export const Div = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+
+  @media (max-width: 840px) {
+  }
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const Form = styled.form`
   display: flex;
-  
-  align-items: flex-start;
-  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 840px) {
+    align-self: center;
+  }
+  @media (max-width: 500px) {
+    max-width: 100vw;
+  }
+`;
+
+export const Title = styled.h1`
+  font-size: 4em;
+  color: #4717f6;
+  @media (max-width: 840px) {
+    font-size: 2em;
+  }
+  @media (max-width: 500px) {
+    font-size: 2.5em;
+  }
 `;
 
 export const Button = styled.button`
-  margin-top: 20px;
-  max-width: 600px;
-  width: 100%;
-  height: 5vh;
-  border-radius: 10px;
-  border: none;
-  font-size: 1.5em;
   background-color: #4717f6;
   color: white;
-  :focus {
-    outline: none;
-    border: 2px solid #154128;
+  border: none;
+  outline: none;
+  width: 34vw;
+  border-radius: 10px;
+  font-size: 2em;
+  height: 7vh;
+  margin-top: 20px;
+
+  @media (max-width: 840px) {
+    margin-top: 10px;
+    font-size: 1em;
+    width: 40vw;
+    height: 12vh;
   }
-  :hover {
-    background-color: #653ef6;
+  @media (max-width: 500px) {
+    width: 80vw;
+    height: 8vh;
+    font-size: 1.5em;
   }
 `;
-export const Title = styled.h1`
-    padding: 20px 0px;
-    font-size: 3em;
-    color: white;
-  
-`
-export const Img = styled.div`
-  position: absolute;
-  text-align: right;
-  
-` 
+export const ImageDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40vw;
+  padding-top: 0vh;
+
+  @media (max-width: 840px) {
+  }
+  @media (max-width: 500px) {
+    width: 80vw;
+  }
+`;
+export const Image = styled.img`
+  width: 100%;
+  max-width: 45vw;
+  align-self: center;
+  @media (max-width: 840px) {
+  }
+  @media (max-width: 500px) {
+    max-width: 80vw;
+    margin-top: 2vh;
+  }
+`;
+export const P = styled.p`
+  align-self: flex-start;
+  font-size: 0.9em;
+  margin: 0px 0px;
+  @media (max-width: 840px) {
+    margin: 0vh 0px;
+  }
+`;

@@ -5,7 +5,7 @@ export const useRequestGet = () => {
   const [resultRequest, setResultRequest] = useState();
 
   const requestGet = (URL, token) => {
-    console.log("URL", URL)
+   
     axios
       .get(URL, {
         headers: { authorization: token },

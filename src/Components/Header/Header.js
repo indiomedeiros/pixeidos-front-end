@@ -15,7 +15,7 @@ import {
   ButtonSignup,
   ButtonUploud,
   ButtonUser,
-  Title
+  Title,
 } from "./styled";
 
 export default function Header(props) {

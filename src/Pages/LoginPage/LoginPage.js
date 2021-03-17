@@ -18,8 +18,6 @@ export default function LoginPage() {
 
   return (
     <Div>
-      <MainImagePage src={imageLogin} />
-
       <Form onSubmit={loginUser}>
         <Title>Get in the movement</Title>
         <InputComponent

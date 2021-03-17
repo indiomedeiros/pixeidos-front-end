@@ -1,11 +1,10 @@
 import SearchInput from "../../Components/SearchInput/SearchInput";
-import { HomeImageDiv, HomeCardDiv, Form, Title } from "./styled";
+import { HomeImageDiv, HomeCardDiv, Form, Title, ImageHomeImg } from "./styled";
 import ImageCard from "../../Components/ImageCard/ImagemCard";
 import { useState } from "react";
 import { useRequestGet } from "../../Hooks/useRequestGet";
 import { searchImageURL, getUserByIdURL } from "../../Requests/entities";
 import { useEffect } from "react";
-import MainImagePage from "../../Components/MainImagePage/MainImagePage";
 import mainImage from "../../Assents/img/main_image.jpg";
 import SpringModal from "../../Components/Modal/SpringModal";
 
@@ -16,11 +15,10 @@ export default function HomePage() {
   const [resultRequestUser, requestGetUser] = useRequestGet();
   const [modal, setModal] = useState();
   const [widowModal, setWidowModal] = useState();
-  const token = JSON.parse(localStorage.getItem("token"));
 
   useEffect(() => {
     const URL = searchImageURL + searchData;
-    requestGet(URL, token);
+    requestGet(URL);
   }, []);
 
   const handleSearchInput = (event) => {
@@ -31,7 +29,7 @@ export default function HomePage() {
   const searchImage = (event) => {
     event.preventDefault();
     const URL = searchImageURL + searchData;
-    requestGet(URL, token);
+    requestGet(URL);
   };
 
   const closeModal = () => {
@@ -43,7 +41,7 @@ export default function HomePage() {
 
   const getUserData = (author) => {
     const URL = getUserByIdURL + author;
-    requestGetUser(URL, token);
+    requestGetUser(URL);
   };
 
   const putDataInModal = (event) => {
@@ -60,7 +58,7 @@ export default function HomePage() {
   return (
     <div>
       <HomeImageDiv>
-        <MainImagePage src={mainImage} />
+        <ImageHomeImg src={mainImage} />
 
         <Form onSubmit={searchImage}>
           <Title>Images Made of motion</Title>
