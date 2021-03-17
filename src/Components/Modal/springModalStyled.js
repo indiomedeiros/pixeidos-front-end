@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Modal from "@material-ui/core/Modal";
 import { useSpring, animated } from "react-spring/web.cjs"; // web.cjs is required for IE 11 support
 import styled from "styled-components";
+import { ModalBackgroundColor } from "../../Assents/color/color";
 
 export const Fade = React.forwardRef(function Fade(props, ref) {
     const { in: open, children, onEnter, onExited, ...other } = props;
@@ -58,9 +59,8 @@ export const Fade = React.forwardRef(function Fade(props, ref) {
     }
   `;
   
-  export const DivPropeties = styled.div`
+  export const DivPropeties = styled(ModalBackgroundColor)`
     padding: 5px 20px;
-    background-color: white;
     font-family: open sans;
   `;
   export const P = styled.p`

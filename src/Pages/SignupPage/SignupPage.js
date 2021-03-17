@@ -1,11 +1,9 @@
 import { useHistory } from "react-router-dom";
 import InputComponent from "../../Components/Input/Input";
 import { useForm } from "../../Hooks/useForm";
-import { signupURL } from "../../Requests/entities";
-import { useRequestPost } from "../../Hooks/useRequestPost";
-import { Button, Div, Form, Title } from "./styled";
-
-
+import { signupURL } from "../../Hooks/Requests/entities";
+import { useRequestPost } from "../../Hooks/Requests/useRequestPost";
+import { Button, Div, Form, Title } from "./signupStyled";
 
 export default function SignupPage() {
   const history = useHistory();
@@ -24,7 +22,6 @@ export default function SignupPage() {
   };
 
   return (
-
 
     <Div>
       <Form onSubmit={createUser}>

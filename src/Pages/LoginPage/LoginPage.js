@@ -1,10 +1,8 @@
 import InputComponent from "../../Components/Input/Input";
 import { useForm } from "../../Hooks/useForm";
-import { useRequestPost } from "../../Hooks/useRequestPost";
-import { loginURL } from "../../Requests/entities";
-import imageLogin from "../../Assents/img/login_image.jpg";
-import MainImagePage from "../../Components/MainImagePage/MainImagePage";
-import { Div, Form, Title, Button } from "./styled";
+import { useRequestPost } from "../../Hooks/Requests/useRequestPost";
+import { loginURL } from "../../Hooks/Requests/entities";
+import { Div, Form, Title, Button } from "./loginStyled";
 
 export default function LoginPage() {
   const [form, handleChange, clearInput] = useForm({ email: "", password: "" });

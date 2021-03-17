@@ -1,4 +1,4 @@
-import {ImageHomeImg} from "./styled"
+import {ImageHomeImg} from "./mainImageStyled"
 
 export default function MainImagePage (props){
     return(

@@ -1,9 +1,9 @@
 import InputComponent from "../../Components/Input/Input";
 import { useForm } from "../../Hooks/useForm";
-import { useRequestPost } from "../../Hooks/useRequestPost";
+import { useRequestPost } from "../../Hooks/Requests/useRequestPost";
 import { useProtectedPage } from "../../Hooks/useProtectedPage";
-import { createImageURL } from "../../Requests/entities";
-import { Button, Div, Form, Image, ImageDiv, Title, P } from "./styled";
+import { createImageURL } from "../../Hooks/Requests/entities";
+import { Button, Div, Form, Image, ImageDiv, Title, P } from "./userStyled";
 
 export default function UserPage() {
   useProtectedPage();

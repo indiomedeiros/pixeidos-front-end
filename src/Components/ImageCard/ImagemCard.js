@@ -1,4 +1,4 @@
-import { CardDivConteiner } from "./styled"
+import { CardDivConteiner } from "./cardStyled"
 
 
 

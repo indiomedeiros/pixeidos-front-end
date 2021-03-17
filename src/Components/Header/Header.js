@@ -3,7 +3,6 @@ import {
   goToHomePage,
   goTologinPage,
   goToSignupPage,
-  goToUploudPage,
   goToUserPage,
 } from "../../Coordination/coordination";
 import { logout } from "../../Services/logout";
@@ -13,10 +12,9 @@ import {
   ButtonsContainer,
   ButtonLoginLogout,
   ButtonSignup,
-  ButtonUploud,
   ButtonUser,
   Title,
-} from "./styled";
+} from "./headerStyled";
 
 export default function Header(props) {
   const history = useHistory();
@@ -47,11 +45,6 @@ export default function Header(props) {
           </ButtonLoginLogout>
         )}
 
-        {/* {token && (
-          <ButtonUploud onClick={() => goToUploudPage(history)}>
-            Upload
-          </ButtonUploud>
-        )} */}
         {token && (
           <ButtonLoginLogout onClick={() => logout(history)}>
             Logout

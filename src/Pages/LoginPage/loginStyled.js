@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ButtonsColor, TitleFormsColor } from "../../Assents/color/color";
 
 export const Div = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ export const Form = styled.form`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled(ButtonsColor)`
   background-color: #4717f6;
   color: white;
   border: none;
@@ -45,8 +46,7 @@ export const Button = styled.button`
     font-size: 1.5em;
   }
 `;
-export const Title = styled.h1`
-  color: #4717f6;
+export const Title = styled(TitleFormsColor)`
   font-size: 4em;
 
   @media (max-width: 840px) {

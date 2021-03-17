@@ -1,9 +1,15 @@
 import SearchInput from "../../Components/SearchInput/SearchInput";
-import { HomeImageDiv, HomeCardDiv, Form, Title, ImageHomeImg } from "./styled";
+import {
+  HomeImageDiv,
+  HomeCardDiv,
+  Form,
+  Title,
+  ImageHomeImg,
+} from "./homeStyled";
 import ImageCard from "../../Components/ImageCard/ImagemCard";
 import { useState } from "react";
-import { useRequestGet } from "../../Hooks/useRequestGet";
-import { searchImageURL, getUserByIdURL } from "../../Requests/entities";
+import { useRequestGet } from "../../Hooks/Requests/useRequestGet";
+import { searchImageURL, getUserByIdURL } from "../../Hooks/Requests/entities";
 import { useEffect } from "react";
 import mainImage from "../../Assents/img/main_image.jpg";
 import SpringModal from "../../Components/Modal/SpringModal";
@@ -19,7 +25,7 @@ export default function HomePage() {
   useEffect(() => {
     const URL = searchImageURL + searchData;
     requestGet(URL);
-  }, []);
+  }, [ searchData ]);
 
   const handleSearchInput = (event) => {
     const data = event.target.value;
@@ -93,7 +99,7 @@ export default function HomePage() {
             onClose={closeModal}
             src={modal.file}
             subtitle={modal.subtitle}
-            author={resultRequestUser ? resultRequestUser.name : modal.author }
+            author={resultRequestUser ? resultRequestUser.name : modal.author}
             date={modal.date.split("-")[0]}
             tags={modal.tags}
             collection={modal.collection}
