@@ -36,13 +36,26 @@ export const Fade = React.forwardRef(function Fade(props, ref) {
   };
   
   export const ImageModal = styled.img`
-    max-width: 60vw;
-    max-height: 70vh;
+    width: 60vw;
+    height: 70vh;
     width: 100%;
     margin-bottom: -5px;
+   
+    @media(max-width: 500px){
+      width: 100%;
+      height: 100%;
+    }
   `;
   export const DivConainer = styled.div`
     display: block;
+    @media (max-width: 840px){
+      width: 50%;
+      height: 50%;
+    }
+    @media (max-width: 500px){
+      width: 100%;
+      height: 100%;
+    }
   `;
   
   export const DivPropeties = styled.div`

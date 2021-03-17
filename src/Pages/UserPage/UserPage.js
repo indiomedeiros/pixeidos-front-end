@@ -3,9 +3,7 @@ import { useForm } from "../../Hooks/useForm";
 import { useRequestPost } from "../../Hooks/useRequestPost";
 import { useProtectedPage } from "../../Hooks/useProtectedPage";
 import { createImageURL } from "../../Requests/entities";
-import { Button, Div, Img, Form, Title } from "./styled";
-import MainImagePage from "../../Components/MainImagePage/MainImagePage";
-import imageLogin from "../../Assents/img/signup_image.jpg";
+import { Button, Div, Form, Image, ImageDiv, Title, P } from "./styled";
 
 export default function UserPage() {
   useProtectedPage();
@@ -22,73 +20,88 @@ export default function UserPage() {
     console.log(createImageURL, form, token);
     requestPost(createImageURL, form, token);
     clearInput();
-    console.log("result", resultRequest);
   };
 
   return (
     <Div>
-      <MainImagePage src={form.file ? form.file : imageLogin} />
-     
-        <Form onSubmit={createImagem}>
-          <Title>Create movement</Title>
+      <Form onSubmit={createImagem}>
+        <Title>Create movement</Title>
+        <InputComponent
+          label="file"
+          type="url"
+          name="file"
+          value={form.file}
+          onChange={handleChange}
+          required
+          placeholder={"Place the image link"}
+        />
+
+        {form.file && (
           <InputComponent
-            label="file"
-            type="url"
-            name="file"
-            value={form.file}
+            label="Subtitle"
+            type="text"
+            name="subtitle"
+            value={form.subtitle}
             onChange={handleChange}
+            pattern="[A-Za-z].{2,}"
+            title="minimum of 3 initial letters"
             required
-            placeholder={"Place the image link"}
+            placeholder={"Subtitle"}
           />
+        )}
 
-          {form.file && (
-            <InputComponent
-              label="Subtitle"
-              type="text"
-              name="subtitle"
-              value={form.subtitle}
-              onChange={handleChange}
-              pattern="[A-Za-z].{2,}"
-              title="minimum of 3 initial letters"
-              required
-              placeholder={"Subtitle"}
-            />
-          )}
+        {form.subtitle && (
+          <InputComponent
+            label="tags"
+            type="text"
+            name="tags"
+            value={form.tags}
+            onChange={handleChange}
+            pattern="[A-Za-z].{2,}"
+            title="minimo de 3 letras iniciais"
+            required
+            placeholder={"Tags"}
+          />
+        )}
 
-          {form.subtitle && (
-            <InputComponent
-              label="tags"
-              type="text"
-              name="tags"
-              value={form.tags}
-              onChange={handleChange}
-              pattern="[A-Za-z].{2,}"
-              title="minimo de 3 letras iniciais"
-              required
-              placeholder={"Tags"}
-            />
-          )}
+        {form.tags && (
+          <InputComponent
+            label="collection"
+            type="text"
+            name="collection"
+            value={form.collection}
+            onChange={handleChange}
+            pattern="[A-Za-z].{2,}"
+            title="minimo de 3 letras iniciais"
+            required
+            placeholder={"Collection"}
+          />
+        )}
 
-          {form.tags && (
-            <InputComponent
-              label="collection"
-              type="text"
-              name="collection"
-              value={form.collection}
-              onChange={handleChange}
-              pattern="[A-Za-z].{2,}"
-              title="minimo de 3 letras iniciais"
-              required
-              placeholder={"Collection"}
-            />
-          )}
-          {form.collection && <button>{"Submit"}</button>}
+        <div>{form.collection && <Button>{"Create movement"}</Button>}</div>
+      </Form>
+      <ImageDiv>
+        <Image src={form.file} />
+        {form.subtitle && (
+          <P>
+            <strong>Subtitle: </strong>
+            {form.subtitle}
+          </P>
+        )}
 
-          <div>
-            {form.collection && <Button>{"Create movement"}</Button>}
-          </div>
-        </Form>
-        
+        {form.tags && (
+          <P>
+            <strong>Tags: </strong>
+            {form.tags}
+          </P>
+        )}
+
+        {form.collection && (
+          <P>
+            <strong>Collection:</strong> {form.collection}
+          </P>
+        )}
+      </ImageDiv>
     </Div>
   );
 }

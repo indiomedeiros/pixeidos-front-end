@@ -8,6 +8,20 @@ export const HeaderContainer = styled.div`
   background-color: #0e0b16;
   padding: 0px 30px;
   height: 7vh;
+
+  @media (max-width: 840px) {
+    font-size: 0.8em;
+    justify-content: space-between;
+    padding: 0px 10px;
+    height: 12vh;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 0.8em;
+    justify-content: space-between;
+    padding: 0px 10px;
+    height: 7vh;
+  }
 `;
 export const Title = styled.h1`
   display: flex;
@@ -17,6 +31,11 @@ export const Title = styled.h1`
   cursor: pointer;
   color: #4717f6;
   font-family: Helvetica;
+
+  @media (max-width: 840px) {
+    font-size: 1.3em;
+  }
+
 `;
 
 export const ButtonTitle = styled.h1`
@@ -24,6 +43,11 @@ export const ButtonTitle = styled.h1`
   cursor: pointer;
   color: white;
   font-family: Helvetica;
+  @media (max-width: 840px) {
+    font-size: 1.2em;
+  }
+
+
 `;
 export const ButtonsContainer = styled.div`
   display: flex;
@@ -47,9 +71,15 @@ export const ButtonLoginLogout = styled(MarginOfButtons)`
   :hover {
     background-color: #653ef6;
   }
+  @media (max-width: 840px) {
+    width: 100%;
+    height: 100%;
+  }
+  
+ 
 `;
 export const ButtonUser = styled(MarginOfButtons)`
-   background-color: transparent;
+  background-color: transparent;
   color: white;
   font-size: 1.2em;
   text-decoration: none;
@@ -63,9 +93,12 @@ export const ButtonUser = styled(MarginOfButtons)`
     outline: none;
   }
   font-family: helvetica;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
-export const ButtonSignup = styled(ButtonUser)`
-`;
+export const ButtonSignup = styled(ButtonUser)``;
 
 export const ButtonUploud = styled(MarginOfButtons)``;

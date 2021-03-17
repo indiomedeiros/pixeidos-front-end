@@ -3,7 +3,7 @@ import Header from "../Components/Header/Header";
 import HomePage from "../Pages/HomePage/HomePage";
 import ImageDetailsPage from "../Pages/ImageDetailsPage";
 import LoginPage from "../Pages/LoginPage/LoginPage";
-import SignupPage from "../Pages/SignupPage";
+import SignupPage from "../Pages/SignupPage/SignupPage";
 import UploadPage from "../Pages/UploadPage";
 
 import UserPage from "../Pages/UserPage/UserPage";
