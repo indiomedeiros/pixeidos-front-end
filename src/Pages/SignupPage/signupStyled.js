@@ -56,3 +56,6 @@ export const Title = styled(TitleFormsColor)`
     font-size: 3em;
   }
 `;
+export const Error = styled.p`
+  color: red;
+`

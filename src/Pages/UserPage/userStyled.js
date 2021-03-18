@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ButtonsColor, TitleColor } from "../../Assents/color/color";
+import { ButtonsColor, TitleFormsColor } from "../../Assents/color/color";
 
 export const Div = styled.div`
   display: grid;
@@ -30,7 +30,7 @@ export const Form = styled.form`
   }
 `;
 
-export const Title = styled(TitleColor)`
+export const Title = styled(TitleFormsColor)`
   font-size: 4em;
   @media (max-width: 840px) {
     font-size: 2em;

@@ -48,3 +48,7 @@ export const Title = styled(TitleColor)`
 
   }
 `;
+export const Error = styled.p`
+  color: red;
+
+` 

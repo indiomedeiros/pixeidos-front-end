@@ -5,10 +5,11 @@ import {
   Form,
   Title,
   ImageHomeImg,
+  Error,
 } from "./homeStyled";
 import ImageCard from "../../Components/ImageCard/ImagemCard";
 import { useState } from "react";
-import { useRequestGet } from "../../Hooks/Requests/useRequestGet";
+import { useRequestDataGet } from "../../Hooks/Requests/useRequestDataGet";
 import { searchImageURL, getUserByIdURL } from "../../Hooks/Requests/entities";
 import { useEffect } from "react";
 import mainImage from "../../Assents/img/main_image.jpg";
@@ -17,15 +18,15 @@ import SpringModal from "../../Components/Modal/SpringModal";
 export default function HomePage() {
   const dataInitialResearch = "a";
   const [searchData, setSearchData] = useState(dataInitialResearch);
-  const [resultRequest, requestGet] = useRequestGet();
-  const [resultRequestUser, requestGetUser] = useRequestGet();
+  const [resultRequest,  imageRequestError, requestImageData] = useRequestDataGet();
+  const [resultRequestUser, userRequestError, requestUserData] = useRequestDataGet();
   const [modal, setModal] = useState();
   const [widowModal, setWidowModal] = useState();
 
   useEffect(() => {
     const URL = searchImageURL + searchData;
-    requestGet(URL);
-  }, [ searchData ]);
+    requestImageData(URL);
+  }, [searchData]);
 
   const handleSearchInput = (event) => {
     const data = event.target.value;
@@ -35,7 +36,7 @@ export default function HomePage() {
   const searchImage = (event) => {
     event.preventDefault();
     const URL = searchImageURL + searchData;
-    requestGet(URL);
+    requestImageData(URL);
   };
 
   const closeModal = () => {
@@ -47,7 +48,7 @@ export default function HomePage() {
 
   const getUserData = (author) => {
     const URL = getUserByIdURL + author;
-    requestGetUser(URL);
+    requestUserData(URL);
   };
 
   const putDataInModal = (event) => {
@@ -68,6 +69,7 @@ export default function HomePage() {
 
         <Form onSubmit={searchImage}>
           <Title>Images Made of motion</Title>
+         {imageRequestError && <Error>{ imageRequestError}</Error>}
 
           <SearchInput
             name={"search"}
