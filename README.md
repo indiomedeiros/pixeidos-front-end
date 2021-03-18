@@ -1,5 +1,13 @@
-PixMovement 
-======
-Objective
-----
-To collect and make available images that have in them proposals of movement or that stimulate strain of body movement
+# PixMovement 
+
+**What works:**
+* Login
+* Register
+* Create image
+* Search image
+
+## Instructions
+`npm start: runs the project and renders in a browser`
+
+All requests are made on the back-end of this same project
+https://github.com/indiomedeiros/pixeidos-back-end
