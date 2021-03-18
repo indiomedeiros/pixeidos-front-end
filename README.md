@@ -1,5 +1,5 @@
 # PixMovement  - project full stack
-surge: [pixmoviment.surge.sh](http://pixmoviment.surge.sh "pixmoviment.surge.sh")
+surge: [pixmovement.surge.sh](http://pixmovement.surge.sh "pixmovement.surge.sh")
 
 **What works:**
 * Login
