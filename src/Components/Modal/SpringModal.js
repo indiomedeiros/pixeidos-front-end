@@ -7,7 +7,7 @@ import {
   ImageModal,
   ModalStyled,
   P,
-} from "./styled";
+} from "./springModalStyled";
 
 export default function SpringModal(props) {
   return (

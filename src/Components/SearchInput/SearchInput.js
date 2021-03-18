@@ -1,4 +1,4 @@
-import { SearchEntryInput } from "./styled";
+import { SearchEntryInput } from "./searchInputStyled";
 
 export default function SearchInput(props) {
   return (

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ButtonsColor, TitleFormsColor } from "../../Assents/color/color";
 
 export const Div = styled.div`
   display: flex;
@@ -22,9 +23,7 @@ export const Form = styled.form`
   }
 `;
 
-export const Button = styled.button`
-  background-color: #4717f6;
-  color: white;
+export const Button = styled(ButtonsColor)`
   border: none;
   outline: none;
   width: 34vw;
@@ -45,8 +44,7 @@ export const Button = styled.button`
     font-size: 1.5em;
   }
 `;
-export const Title = styled.h1`
-  color: #4717f6;
+export const Title = styled(TitleFormsColor)`
   font-size: 4em;
 
   @media (max-width: 840px) {
@@ -58,3 +56,6 @@ export const Title = styled.h1`
     font-size: 3em;
   }
 `;
+export const Error = styled.p`
+  color: red;
+`

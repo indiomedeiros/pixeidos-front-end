@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "./styled"
+import { Input } from "./inputStyled"
 export default function InputComponent(props) {
   return (
 

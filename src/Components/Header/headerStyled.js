@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import {
+  HeaderBackgroundColor,
+  TitleFormsColor,
+  ButtonsColor,
+} from "../../Assents/color/color";
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled(HeaderBackgroundColor)`
   display: flex;
   font-weight: bolder;
   justify-content: space-between;
   align-items: center;
-  background-color: #0e0b16;
   padding: 0px 30px;
   height: 7vh;
 
@@ -23,19 +27,17 @@ export const HeaderContainer = styled.div`
     height: 7vh;
   }
 `;
-export const Title = styled.h1`
+export const Title = styled(TitleFormsColor)`
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.7em;
   cursor: pointer;
-  color: #4717f6;
   font-family: Helvetica;
 
   @media (max-width: 840px) {
     font-size: 1.3em;
   }
-
 `;
 
 export const ButtonTitle = styled.h1`
@@ -46,39 +48,31 @@ export const ButtonTitle = styled.h1`
   @media (max-width: 840px) {
     font-size: 1.2em;
   }
-
-
 `;
 export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   height: 30px;
 `;
-export const MarginOfButtons = styled.button`
+
+export const ButtonLoginLogout = styled(ButtonsColor)`
   margin-left: 10px;
-`;
-export const ButtonLoginLogout = styled(MarginOfButtons)`
   font-weight: bolder;
   border-radius: 5px;
-  background-color: #4717f6;
-  color: white;
   width: 80px;
   height: 35px;
   border: none;
   :focus {
     outline: none;
   }
-  :hover {
-    background-color: #653ef6;
-  }
+  
   @media (max-width: 840px) {
     width: 100%;
     height: 100%;
   }
-  
- 
 `;
-export const ButtonUser = styled(MarginOfButtons)`
+export const ButtonUser = styled.button`
+  margin-left: 10px;
   background-color: transparent;
   color: white;
   font-size: 1.2em;
@@ -100,5 +94,3 @@ export const ButtonUser = styled(MarginOfButtons)`
 `;
 
 export const ButtonSignup = styled(ButtonUser)``;
-
-export const ButtonUploud = styled(MarginOfButtons)``;

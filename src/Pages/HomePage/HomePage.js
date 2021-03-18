@@ -1,9 +1,16 @@
 import SearchInput from "../../Components/SearchInput/SearchInput";
-import { HomeImageDiv, HomeCardDiv, Form, Title, ImageHomeImg } from "./styled";
+import {
+  HomeImageDiv,
+  HomeCardDiv,
+  Form,
+  Title,
+  ImageHomeImg,
+  Error,
+} from "./homeStyled";
 import ImageCard from "../../Components/ImageCard/ImagemCard";
 import { useState } from "react";
-import { useRequestGet } from "../../Hooks/useRequestGet";
-import { searchImageURL, getUserByIdURL } from "../../Requests/entities";
+import { useRequestDataGet } from "../../Hooks/Requests/useRequestDataGet";
+import { searchImageURL, getUserByIdURL } from "../../Hooks/Requests/entities";
 import { useEffect } from "react";
 import mainImage from "../../Assents/img/main_image.jpg";
 import SpringModal from "../../Components/Modal/SpringModal";
@@ -11,15 +18,15 @@ import SpringModal from "../../Components/Modal/SpringModal";
 export default function HomePage() {
   const dataInitialResearch = "a";
   const [searchData, setSearchData] = useState(dataInitialResearch);
-  const [resultRequest, requestGet] = useRequestGet();
-  const [resultRequestUser, requestGetUser] = useRequestGet();
+  const [resultRequest,  imageRequestError, requestImageData] = useRequestDataGet();
+  const [resultRequestUser, userRequestError, requestUserData] = useRequestDataGet();
   const [modal, setModal] = useState();
   const [widowModal, setWidowModal] = useState();
 
   useEffect(() => {
     const URL = searchImageURL + searchData;
-    requestGet(URL);
-  }, []);
+    requestImageData(URL);
+  }, [searchData]);
 
   const handleSearchInput = (event) => {
     const data = event.target.value;
@@ -29,7 +36,7 @@ export default function HomePage() {
   const searchImage = (event) => {
     event.preventDefault();
     const URL = searchImageURL + searchData;
-    requestGet(URL);
+    requestImageData(URL);
   };
 
   const closeModal = () => {
@@ -41,7 +48,7 @@ export default function HomePage() {
 
   const getUserData = (author) => {
     const URL = getUserByIdURL + author;
-    requestGetUser(URL);
+    requestUserData(URL);
   };
 
   const putDataInModal = (event) => {
@@ -62,6 +69,7 @@ export default function HomePage() {
 
         <Form onSubmit={searchImage}>
           <Title>Images Made of motion</Title>
+         {imageRequestError && <Error>{ imageRequestError}</Error>}
 
           <SearchInput
             name={"search"}
@@ -93,7 +101,7 @@ export default function HomePage() {
             onClose={closeModal}
             src={modal.file}
             subtitle={modal.subtitle}
-            author={resultRequestUser ? resultRequestUser.name : modal.author }
+            author={resultRequestUser ? resultRequestUser.name : modal.author}
             date={modal.date.split("-")[0]}
             tags={modal.tags}
             collection={modal.collection}

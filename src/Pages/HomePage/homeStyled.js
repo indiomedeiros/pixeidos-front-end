@@ -1,11 +1,10 @@
 import styled from "styled-components";
+import { TitleColor } from "../../Assents/color/color";
 
 export const HomeImageDiv = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: black;
-  
 `;
 
 export const ImageHomeImg = styled.img`
@@ -41,12 +40,15 @@ export const HomeCardDiv = styled.div`
 
 `;
 
-export const Title = styled.h1`
+export const Title = styled(TitleColor)`
   font-size: 3em;
-  color: white;
   font-family: roboto;
   @media(max-width: 768px){
     font-size: 2.5em;
 
   }
 `;
+export const Error = styled.p`
+  color: red;
+
+` 

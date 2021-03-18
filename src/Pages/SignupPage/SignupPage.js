@@ -1,15 +1,11 @@
-import { useHistory } from "react-router-dom";
 import InputComponent from "../../Components/Input/Input";
 import { useForm } from "../../Hooks/useForm";
-import { signupURL } from "../../Requests/entities";
-import { useRequestPost } from "../../Hooks/useRequestPost";
-import { Button, Div, Form, Title } from "./styled";
-
-
+import { signupURL } from "../../Hooks/Requests/entities";
+import { useRequestPost } from "../../Hooks/Requests/useRequestPost";
+import { Button, Div, Error, Form, Title } from "./signupStyled";
 
 export default function SignupPage() {
-  const history = useHistory();
-  const [requestPost] = useRequestPost();
+  const [resultRequest, signupError, requestData] = useRequestPost();
   const [form, handleChange, clearInput] = useForm({
     name: "",
     nickname: "",
@@ -19,16 +15,14 @@ export default function SignupPage() {
 
   const createUser = (event) => {
     event.preventDefault();
-    requestPost(signupURL, form);
+    requestData(signupURL, form);
     clearInput();
   };
 
   return (
-
-
     <Div>
       <Form onSubmit={createUser}>
-        <Title>Wake up in motion</Title> 
+        <Title>Wake up in motion</Title>
         <InputComponent
           label="Nome"
           type="text"
@@ -36,7 +30,7 @@ export default function SignupPage() {
           value={form.name}
           onChange={handleChange}
           pattern="[A-Za-z].{2,}"
-          title="mínimo de 3 letras iniciais"
+          title="minimum of 3 initial letters without accents or special characters"
           placeholder={"*Name"}
           required
         />
@@ -48,7 +42,7 @@ export default function SignupPage() {
           value={form.nickname}
           onChange={handleChange}
           pattern="[A-Za-z].{2,}"
-          title="mínimo de 3 letras iniciais"
+          title="minimum of 3 initial letters without accents or special characters"
           required
           placeholder={"*Nickname"}
         />
@@ -70,13 +64,13 @@ export default function SignupPage() {
           type="password"
           name="password"
           pattern=".{6,}"
-          title="mínnimo de 6 caracters"
+          title="minimum of 6 characters"
           value={form.password}
           onChange={handleChange}
           placeholder={"*Password"}
           required
         />
-
+        {signupError && <Error>{signupError.error}</Error>}
         <div>
           <Button>{"Signup"}</Button>
         </div>
