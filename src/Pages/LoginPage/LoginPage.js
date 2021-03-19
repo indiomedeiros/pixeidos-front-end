@@ -12,7 +12,9 @@ export default function LoginPage() {
   const loginUser = (event) => {
     event.preventDefault();
     requestData(loginURL, form);
-    clearInput();
+    if (!loginError) {
+      clearInput();
+    }
   };
 
   return (
