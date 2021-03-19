@@ -94,3 +94,4 @@ export const ButtonUser = styled.button`
 `;
 
 export const ButtonSignup = styled(ButtonUser)``;
+export const ButtonHome = styled(ButtonUser)``;

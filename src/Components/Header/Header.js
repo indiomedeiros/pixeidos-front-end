@@ -14,6 +14,7 @@ import {
   ButtonSignup,
   ButtonUser,
   Title,
+  ButtonHome,
 } from "./headerStyled";
 
 export default function Header(props) {
@@ -29,6 +30,7 @@ export default function Header(props) {
         </ButtonTitle>
       </Title>
       <ButtonsContainer>
+        <ButtonHome onClick={() => goToHomePage(history)}>Home</ButtonHome>
         {token && (
           <ButtonUser onClick={() => goToUserPage(history)}>Myspace</ButtonUser>
         )}

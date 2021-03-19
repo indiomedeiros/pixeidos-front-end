@@ -16,7 +16,9 @@ export default function SignupPage() {
   const createUser = (event) => {
     event.preventDefault();
     requestData(signupURL, form);
-    clearInput();
+    if (!signupError) {
+      clearInput();
+    }
   };
 
   return (

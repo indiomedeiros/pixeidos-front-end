@@ -21,11 +21,13 @@ export const useRequestPost = () => {
         setError("");
       })
       .catch((error) => {
-        error.response.data === "jwt expired" &&
+        if (error.response.data === "jwt expired") {
           setError("Your session has expired. Sign in again");
-        localStorage.removeItem("token");
-        goTologinPage(history);
 
+          localStorage.removeItem("token");
+
+          goTologinPage(history);
+        }
         error.response &&
           error.response.data !== "jwt expired" &&
           setError(error.response.data);
