@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/pixeidos-front-end/static/css/main.a9c69d50.chunk.css",
+    "main.js": "/pixeidos-front-end/static/js/main.82160987.chunk.js",
+    "main.js.map": "/pixeidos-front-end/static/js/main.82160987.chunk.js.map",
+    "runtime-main.js": "/pixeidos-front-end/static/js/runtime-main.17379d02.js",
+    "runtime-main.js.map": "/pixeidos-front-end/static/js/runtime-main.17379d02.js.map",
+    "static/js/2.3ea33b86.chunk.js": "/pixeidos-front-end/static/js/2.3ea33b86.chunk.js",
+    "static/js/2.3ea33b86.chunk.js.map": "/pixeidos-front-end/static/js/2.3ea33b86.chunk.js.map",
+    "index.html": "/pixeidos-front-end/index.html",
+    "static/css/main.a9c69d50.chunk.css.map": "/pixeidos-front-end/static/css/main.a9c69d50.chunk.css.map",
+    "static/js/2.3ea33b86.chunk.js.LICENSE.txt": "/pixeidos-front-end/static/js/2.3ea33b86.chunk.js.LICENSE.txt",
+    "static/media/main_image.c04479bd.jpg": "/pixeidos-front-end/static/media/main_image.c04479bd.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.17379d02.js",
+    "static/js/2.3ea33b86.chunk.js",
+    "static/css/main.a9c69d50.chunk.css",
+    "static/js/main.82160987.chunk.js"
+  ]
+}
